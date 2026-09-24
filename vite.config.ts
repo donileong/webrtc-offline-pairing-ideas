@@ -6,6 +6,16 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [svelte()],
+  server: {
+    host: true,
+    allowedHosts: [
+      '.ngrok-free.app',
+      '.ngrok-free.dev',
+      '.ngrok.io',
+      '.trycloudflare.com',
+      '.localtunnel.me',
+    ],
+  },
   resolve: {
     conditions: ['browser'],
     alias: {

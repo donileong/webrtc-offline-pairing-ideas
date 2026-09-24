@@ -1,165 +1,150 @@
 <script lang="ts">
-  let count = $state(0);
+  import { router } from './lib/router/routerStore.svelte';
+  import { activeSession } from './lib/transport/activeSession.svelte';
+  import Router from './lib/router/Router.svelte';
 
-  function increment() {
-    count += 1;
+  function goHome() {
+    router.navigate('/');
   }
 
-  function reset() {
-    count = 0;
+  function goToRoom() {
+    router.navigate('/room');
   }
 </script>
 
-<main class="container">
-  <div class="card">
-    <div class="badge-row">
-      <span class="badge">Svelte 5</span>
-      <span class="badge badge-success">Vite + Vanilla CSS</span>
-    </div>
+<div class="app-layout">
+  <header class="app-header">
+    <button class="brand-btn" onclick={goHome}>
+      <img src="/favicon.svg" alt="Peer Box Logo" class="brand-mark" width="28" height="28" />
+      <span class="brand-title">Peer Box</span>
+    </button>
 
-    <h1 class="title">Hello World</h1>
-    <p class="subtitle">
-      Initialized with Svelte 5, Vite, Vitest, Vanilla CSS, ESLint, and Prettier.
-    </p>
+    <nav class="nav-links">
+      <button
+        class="nav-btn"
+        class:active={router.path === '/' || router.path.startsWith('/connect')}
+        onclick={goHome}
+      >
+        Methods
+      </button>
 
-    <div class="counter-box">
-      <div class="count-display">
-        <span class="count-label">Clicks</span>
-        <span class="count-number" data-testid="counter-val">{count}</span>
-      </div>
+      {#if activeSession.state === 'connected'}
+        <button
+          class="nav-btn room-active-btn"
+          class:active={router.path === '/room'}
+          onclick={goToRoom}
+        >
+          <span class="online-dot"></span>
+          Room
+        </button>
+      {/if}
+    </nav>
+  </header>
 
-      <div class="actions">
-        <button type="button" class="btn btn-primary" onclick={increment}> Increment </button>
-        {#if count > 0}
-          <button type="button" class="btn btn-secondary" onclick={reset}> Reset </button>
-        {/if}
-      </div>
-    </div>
-  </div>
-</main>
+  <main class="main-content">
+    <Router />
+  </main>
+
+  <footer class="app-footer">
+    <p>Peer Box &bull; Decentralized, Serverless P2P WebRTC</p>
+  </footer>
+</div>
 
 <style>
-  .container {
-    width: 100%;
-  }
-
-  .card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    backdrop-filter: blur(16px);
-    border-radius: 1rem;
-    padding: 2.5rem;
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.4),
-      0 8px 10px -6px rgba(0, 0, 0, 0.3);
-    text-align: center;
-  }
-
-  .badge-row {
+  .app-layout {
     display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+    min-height: 90vh;
   }
 
-  .badge {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    background-color: var(--badge-bg);
-    color: var(--badge-text);
-    border: 1px solid var(--badge-border);
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .badge-success {
-    background-color: var(--success-bg);
-    color: var(--success-text);
-    border-color: var(--success-border);
+  .brand-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
   }
 
-  .title {
-    font-size: 2.25rem;
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: block;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .brand-title {
+    font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: -0.025em;
-    margin-bottom: 0.75rem;
-    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-    -webkit-background-clip: text;
+    background: linear-gradient(135deg, #f8fafc, #94a3b8);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .subtitle {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: 2rem;
-  }
-
-  .counter-box {
+  .nav-links {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 1.25rem;
-    background: rgba(15, 23, 42, 0.5);
-    border: 1px solid var(--card-border);
-    padding: 1.5rem;
-    border-radius: 0.75rem;
+    gap: 0.5rem;
   }
 
-  .count-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .count-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-  }
-
-  .count-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--text-main);
-  }
-
-  .actions {
-    display: flex;
-    gap: 0.75rem;
-  }
-
-  .btn {
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.875rem;
-    font-weight: 600;
-    padding: 0.625rem 1.25rem;
-    border-radius: 0.5rem;
+  .nav-btn {
+    background: transparent;
     border: none;
-    transition: all 0.2s ease;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.15s;
   }
 
-  .btn-primary {
-    background-color: var(--primary);
-    color: #ffffff;
-    box-shadow: 0 4px 14px 0 var(--primary-glow);
+  .nav-btn:hover {
+    color: #f1f5f9;
+    background: rgba(255, 255, 255, 0.05);
   }
 
-  .btn-primary:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-1px);
+  .nav-btn.active {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
   }
 
-  .btn-secondary {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-main);
+  .room-active-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #10b981;
+    font-weight: 600;
   }
 
-  .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.18);
+  .online-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 6px #10b981;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+
+  .app-footer {
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    color: #64748b;
+    font-size: 0.8rem;
   }
 </style>

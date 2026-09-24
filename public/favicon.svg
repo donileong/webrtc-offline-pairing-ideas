@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="100%" height="100%">
+  <!-- App Icon Squircle Container (Safe Zone Standard) -->
+  <rect width="1024" height="1024" rx="228.0" fill="#090a0f" />
+
+  <!-- Centered Optical Nested Hypercube (Peer Vault Box) -->
+  <g fill="none" stroke="#ffffff" stroke-width="48.00" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4">
+    <!-- Outer Isometric Hexagon -->
+    <polygon points="512.00,174.00 804.72,343.00 804.72,681.00 512.00,850.00 219.28,681.00 219.28,343.00" />
+
+    <!-- Inner Core Isometric Hexagon -->
+    <polygon points="512.00,343.00 658.36,427.50 658.36,596.50 512.00,681.00 365.64,596.50 365.64,427.50" />
+
+    <!-- Radial Connection Struts -->
+    <line x1="512.00" y1="174.00" x2="512.00" y2="343.00" />
+    <line x1="804.72" y1="343.00" x2="658.36" y2="427.50" />
+    <line x1="804.72" y1="681.00" x2="658.36" y2="596.50" />
+    <line x1="512.00" y1="850.00" x2="512.00" y2="681.00" />
+    <line x1="219.28" y1="681.00" x2="365.64" y2="596.50" />
+    <line x1="219.28" y1="343.00" x2="365.64" y2="427.50" />
+  </g>
+</svg>

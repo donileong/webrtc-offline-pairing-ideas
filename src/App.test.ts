@@ -3,16 +3,19 @@ import { mount, unmount } from 'svelte';
 import App from './App.svelte';
 
 describe('App component', () => {
-  it('renders Hello World title correctly', () => {
+  it('renders Peer Box title and method cards', () => {
     const target = document.createElement('div');
     document.body.appendChild(target);
     const component = mount(App, { target });
 
-    const title = target.querySelector('.title');
-    expect(title?.textContent).toBe('Hello World');
+    const brandTitle = target.querySelector('.brand-title');
+    expect(brandTitle?.textContent).toBe('Peer Box');
 
-    const counter = target.querySelector('[data-testid="counter-val"]');
-    expect(counter?.textContent).toBe('0');
+    const heroTitle = target.querySelector('.hero-title');
+    expect(heroTitle?.textContent).toBe('Peer Box');
+
+    const methodCards = target.querySelectorAll('.method-card');
+    expect(methodCards.length).toBeGreaterThanOrEqual(3);
 
     unmount(component);
     target.remove();
