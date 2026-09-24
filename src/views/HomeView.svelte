@@ -25,11 +25,6 @@
   function goToActiveRoom() {
     router.navigate('/room');
   }
-
-  function runQuickLoopback() {
-    activeSession.transport.simulateLoopback();
-    router.navigate('/room');
-  }
 </script>
 
 <QrPairingModal open={showQrModal} onclose={() => (showQrModal = false)} />
@@ -86,13 +81,6 @@
         <span class="future-tag">Supported in PeerTransport</span>
       </div>
     </div>
-  </div>
-
-  <div class="quick-test-box">
-    <span>Need a quick single-browser test?</span>
-    <button class="btn btn-outline-sm" onclick={runQuickLoopback}>
-      Run In-Memory Loopback Test
-    </button>
   </div>
 </div>
 
@@ -271,33 +259,5 @@
     font-size: 0.75rem;
     color: #64748b;
     font-weight: 500;
-  }
-
-  .quick-test-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background: rgba(15, 23, 42, 0.5);
-    border: 1px solid #334155;
-    font-size: 0.85rem;
-    color: #94a3b8;
-  }
-
-  .btn-outline-sm {
-    background: transparent;
-    border: 1px solid #475569;
-    color: #cbd5e1;
-    padding: 0.35rem 0.75rem;
-    border-radius: 0.375rem;
-    font-size: 0.8rem;
-    cursor: pointer;
-  }
-
-  .btn-outline-sm:hover {
-    border-color: #38bdf8;
-    color: #38bdf8;
   }
 </style>
