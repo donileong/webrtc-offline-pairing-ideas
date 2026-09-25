@@ -1,7 +1,7 @@
 /**
  * types.ts
  *
- * Core interfaces for P2P Transports (Direct WebRTC, Trystero, etc.)
+ * Core interfaces for P2P Transports (Direct WebRTC)
  */
 
 export type ConnectionState =

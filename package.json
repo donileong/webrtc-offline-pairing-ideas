@@ -39,11 +39,8 @@
     "vitest": "^5.0.1"
   },
   "dependencies": {
-    "@trystero-p2p/nostr": "^0.25.4",
-    "@trystero-p2p/torrent": "^0.25.4",
     "ggwave": "^0.4.0",
     "jsqr": "^1.4.0",
-    "qrcode": "^1.5.4",
-    "trystero": "^0.25.4"
+    "qrcode": "^1.5.4"
   }
 }

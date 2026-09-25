@@ -36,8 +36,8 @@
     <div class="badge-tag">P2P Decentralized Toolbox</div>
     <h1 class="hero-title">Peer Box</h1>
     <p class="hero-desc">
-      Direct, serverless WebRTC data transfer between nearby or remote devices. Choose how you want
-      to connect:
+      Direct, offline serverless WebRTC data transfer between nearby devices. Choose how you want
+      to pair:
     </p>
   </div>
 
@@ -66,21 +66,6 @@
         </div>
       </button>
     {/each}
-
-    <!-- Preview of Trystero / Relay Architecture -->
-    <div class="method-card future-card">
-      <div class="method-top">
-        <h3 class="method-name">Trystero Rooms</h3>
-        <span class="method-badge relay">Relay Provider</span>
-      </div>
-      <p class="method-desc">
-        Serverless P2P matchmaking over Nostr, BitTorrent trackers, or MQTT relays using shared room
-        codes.
-      </p>
-      <div class="method-footer">
-        <span class="future-tag">Supported in PeerTransport</span>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -196,18 +181,6 @@
     box-shadow: 0 8px 20px -4px rgba(2, 132, 199, 0.25);
   }
 
-  .future-card {
-    cursor: default;
-    background: rgba(30, 41, 59, 0.5);
-    border-style: dashed;
-  }
-
-  .future-card:hover {
-    border-color: #64748b;
-    transform: none;
-    box-shadow: none;
-  }
-
   .method-top {
     display: flex;
     justify-content: space-between;
@@ -225,11 +198,6 @@
     background: rgba(56, 189, 248, 0.15);
     color: #38bdf8;
     white-space: nowrap;
-  }
-
-  .method-badge.relay {
-    background: rgba(168, 85, 247, 0.15);
-    color: #c084fc;
   }
 
   .method-name {
@@ -253,11 +221,5 @@
     font-size: 0.85rem;
     font-weight: 600;
     color: #38bdf8;
-  }
-
-  .future-tag {
-    font-size: 0.75rem;
-    color: #64748b;
-    font-weight: 500;
   }
 </style>

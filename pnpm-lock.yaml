@@ -8,12 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@trystero-p2p/nostr':
-        specifier: ^0.25.4
-        version: 0.25.4
-      '@trystero-p2p/torrent':
-        specifier: ^0.25.4
-        version: 0.25.4
       ggwave:
         specifier: ^0.4.0
         version: 0.4.0
@@ -23,9 +17,6 @@ importers:
       qrcode:
         specifier: ^1.5.4
         version: 1.5.4
-      trystero:
-        specifier: ^0.25.4
-        version: 0.25.4
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
@@ -233,9 +224,6 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@noble/secp256k1@3.2.0':
-    resolution: {integrity: sha512-Z3ZAWOTxJ0EuTuZTi7Y69iK7GgrLHh8sgm45lVDhg/b3Nk1TpAiKhick2KkZisHuupeepSkyIydN/J459SdX1w==}
-
   '@oxc-project/types@0.150.0':
     resolution: {integrity: sha512-rDS5/31E9HfPl/CIzGrn0DOlvBbXFseQ5URJ9sYMfstbKLD/c6Gm9vmRzRGDdAXyOIL4zmO37lc9RIwYqVruZw==}
 
@@ -353,15 +341,6 @@ packages:
     peerDependencies:
       svelte: ^5.46.4
       vite: ^8.0.0-beta.7 || ^8.0.0
-
-  '@trystero-p2p/core@0.25.4':
-    resolution: {integrity: sha512-ehvSL1FqW962XyEctXngeDF/IOM1bWmfCKBNR4vwmVa0JGfM0+dlY4TEzSEGghYp3qqGCrpFIVTxdvlBUGVO6Q==}
-
-  '@trystero-p2p/nostr@0.25.4':
-    resolution: {integrity: sha512-QDox1VVHl0ro/CLfQVUtMS9EQbtJhQM7CCsO4SGv9KrPBT+x3bmOqQ4Y6iugsLzQ6sW+a2cwUTxjDRz/BywqMg==}
-
-  '@trystero-p2p/torrent@0.25.4':
-    resolution: {integrity: sha512-HjC1V9+70j2fhqK26BzDhjJM5A5toLGLgGgS/jZAq+7ufA8HxUHRE4qPU8kn1Wu0E0K7cMGzpWcMCcbVB7AzZA==}
 
   '@tsconfig/svelte@5.0.8':
     resolution: {integrity: sha512-UkNnw1/oFEfecR8ypyHIQuWYdkPvHiwcQ78sh+ymIiYoF+uc5H1UBetbjyqT+vgGJ3qQN6nhucJviX6HesWtKQ==}
@@ -1162,9 +1141,6 @@ packages:
     resolution: {integrity: sha512-bLVMLPtstlZ4iMQHpFHTR7GAGj2jxi8Dg0s2h2MafAE4uSWF98FC/3MomU51iQAMf8/qDUbKWf5GxuvvVcXEhw==}
     engines: {node: '>=20'}
 
-  trystero@0.25.4:
-    resolution: {integrity: sha512-tFYn/fO1kBeSKLUxRPKHH2n5jIuz9zlPPF9SmCVrGBiPNDGtFZyHuQONMUwftnCclTWlVsLoTus5/6eHhVEg+Q==}
-
   ts-api-utils@2.5.0:
     resolution: {integrity: sha512-OJ/ibxhPlqrMM0UiNHJ/0CKQkoKF243/AEmplt3qpRgkW8VG7IfOS41h7V8TjITqdByHzrjcS/2si+y4lIh8NA==}
     engines: {node: '>=18.12'}
@@ -1497,8 +1473,6 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@noble/secp256k1@3.2.0': {}
-
   '@oxc-project/types@0.150.0': {}
 
   '@rolldown/binding-android-arm-eabi@1.2.9':
@@ -1562,17 +1536,6 @@ snapshots:
       svelte: 5.57.1(@typescript-eslint/types@8.70.1)
       vite: 8.3.0(@types/node@26.6.2)
       vitefu: 1.1.3(vite@8.3.0(@types/node@26.6.2))
-
-  '@trystero-p2p/core@0.25.4': {}
-
-  '@trystero-p2p/nostr@0.25.4':
-    dependencies:
-      '@noble/secp256k1': 3.2.0
-      '@trystero-p2p/core': 0.25.4
-
-  '@trystero-p2p/torrent@0.25.4':
-    dependencies:
-      '@trystero-p2p/core': 0.25.4
 
   '@tsconfig/svelte@5.0.8': {}
 
@@ -2353,10 +2316,6 @@ snapshots:
   tr46@6.0.0:
     dependencies:
       punycode: 2.3.1
-
-  trystero@0.25.4:
-    dependencies:
-      '@trystero-p2p/nostr': 0.25.4
 
   ts-api-utils@2.5.0(typescript@6.0.3):
     dependencies:
