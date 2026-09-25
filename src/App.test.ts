@@ -9,10 +9,10 @@ describe('App component', () => {
     const component = mount(App, { target });
 
     const brandTitle = target.querySelector('.brand-title');
-    expect(brandTitle?.textContent).toBe('Peer Box');
+    expect(brandTitle?.textContent).toBe('WebRTC Offline Pairing');
 
     const heroTitle = target.querySelector('.hero-title');
-    expect(heroTitle?.textContent).toBe('Peer Box');
+    expect(heroTitle?.textContent).toBe('WebRTC Offline Pairing Ideas');
 
     const methodCards = target.querySelectorAll('.method-card');
     expect(methodCards.length).toBeGreaterThanOrEqual(3);

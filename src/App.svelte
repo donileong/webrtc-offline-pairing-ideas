@@ -15,8 +15,9 @@
 <div class="app-layout">
   <header class="app-header">
     <button class="brand-btn" onclick={goHome}>
-      <img src="/favicon.svg" alt="Peer Box Logo" class="brand-mark" width="28" height="28" />
-      <span class="brand-title">Peer Box</span>
+      <img src="/favicon.svg" alt="WebRTC Offline Pairing Logo" class="brand-mark" width="28" height="28" />
+      <span class="brand-title">WebRTC Offline Pairing</span>
+      <span class="demo-tag">DEMO</span>
     </button>
 
     <nav class="nav-links">
@@ -46,7 +47,7 @@
   </main>
 
   <footer class="app-footer">
-    <p>Peer Box &bull; Decentralized, Serverless P2P WebRTC</p>
+    <p>WebRTC Offline Pairing Ideas &bull; Experimental Demo &bull; Zero Server Infrastructure</p>
   </footer>
 </div>
 
@@ -91,6 +92,18 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .demo-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 9999px;
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
   }
 
   .nav-links {
