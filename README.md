@@ -1,5 +1,7 @@
 # WebRTC Offline Pairing Ideas (Demo)
 
+🌐 **Live Demo**: [https://donileong.github.io/webrtc-offline-pairing-ideas/](https://donileong.github.io/webrtc-offline-pairing-ideas/)
+
 > ⚠️ **Demo & Technical Prototype**: This project is an experimental proof-of-concept demonstrating how physical and out-of-band transmission channels can establish WebRTC peer-to-peer data channels between nearby devices completely **offline**, with zero centralized signaling servers and without internet connectivity.
 
 ---

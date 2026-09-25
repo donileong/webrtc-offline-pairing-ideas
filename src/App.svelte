@@ -15,20 +15,18 @@
 <div class="app-layout">
   <header class="app-header">
     <button class="brand-btn" onclick={goHome}>
-      <img src="/favicon.svg" alt="WebRTC Offline Pairing Logo" class="brand-mark" width="28" height="28" />
+      <img
+        src="{import.meta.env.BASE_URL}favicon.svg"
+        alt="WebRTC Offline Pairing Logo"
+        class="brand-mark"
+        width="28"
+        height="28"
+      />
       <span class="brand-title">WebRTC Offline Pairing</span>
       <span class="demo-tag">DEMO</span>
     </button>
 
     <nav class="nav-links">
-      <button
-        class="nav-btn"
-        class:active={router.path === '/' || router.path.startsWith('/connect')}
-        onclick={goHome}
-      >
-        Methods
-      </button>
-
       {#if activeSession.state === 'connected'}
         <button
           class="nav-btn room-active-btn"

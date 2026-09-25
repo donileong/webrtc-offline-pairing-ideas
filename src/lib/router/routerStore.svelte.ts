@@ -4,14 +4,31 @@
  * Lightweight Svelte 5 reactive client-side router with HTML5 history support.
  */
 
+function getNormalizedPath(): string {
+  if (typeof window === 'undefined') return '/';
+  if (window.location.hash) {
+    const hash = window.location.hash.slice(1);
+    return hash.startsWith('/') ? hash : '/' + hash;
+  }
+  const base = import.meta.env.BASE_URL || '/';
+  let p = window.location.pathname || '/';
+  if (base !== '/' && p.startsWith(base)) {
+    p = p.slice(base.length - 1);
+  }
+  return p.startsWith('/') ? p : '/' + p;
+}
+
 class Router {
   public path = $state<string>('/');
 
   constructor() {
     if (typeof window !== 'undefined') {
-      this.path = window.location.pathname || '/';
+      this.path = getNormalizedPath();
       window.addEventListener('popstate', () => {
-        this.path = window.location.pathname || '/';
+        this.path = getNormalizedPath();
+      });
+      window.addEventListener('hashchange', () => {
+        this.path = getNormalizedPath();
       });
     }
   }
@@ -19,13 +36,17 @@ class Router {
   navigate(to: string) {
     if (typeof window === 'undefined') return;
     if (this.path === to) return;
-    window.history.pushState({}, '', to);
+    const base = import.meta.env.BASE_URL || '/';
+    const targetUrl = base === '/' ? to : `${base.replace(/\/$/, '')}${to}`;
+    window.history.pushState({}, '', targetUrl);
     this.path = to;
   }
 
   replace(to: string) {
     if (typeof window === 'undefined') return;
-    window.history.replaceState({}, '', to);
+    const base = import.meta.env.BASE_URL || '/';
+    const targetUrl = base === '/' ? to : `${base.replace(/\/$/, '')}${to}`;
+    window.history.replaceState({}, '', targetUrl);
     this.path = to;
   }
 
